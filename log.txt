@@ -1,0 +1,611 @@
+Attaching to airflow-init-1, airflow-scheduler-1, airflow-webserver-1, airflow-worker-1, flower-1, postgres-1, redis-1
+redis-1  | Starting Redis Server
+redis-1  | 1:C 01 Sep 2025 02:15:59.682 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis-1  | 1:C 01 Sep 2025 02:15:59.682 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis-1  | 1:C 01 Sep 2025 02:15:59.682 * Redis version=8.2.1, bits=64, commit=00000000, modified=1, pid=1, just started
+redis-1  | 1:C 01 Sep 2025 02:15:59.682 * Configuration loaded
+redis-1  | 1:M 01 Sep 2025 02:15:59.683 * monotonic clock: POSIX clock_gettime
+redis-1  | 1:M 01 Sep 2025 02:15:59.683 * Running mode=standalone, port=6379.
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> RedisBloom version 8.2.0 (Git=unknown)
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> Registering configuration options: [
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> 	{ bf-error-rate       :      0.01 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> 	{ bf-initial-size     :       100 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> 	{ bf-expansion-factor :         2 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> 	{ cf-bucket-size      :         2 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> 	{ cf-initial-size     :      1024 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> 	{ cf-max-iterations   :        20 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> 	{ cf-expansion-factor :         1 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> 	{ cf-max-expansions   :        32 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * <bf> ]
+redis-1  | 1:M 01 Sep 2025 02:15:59.684 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so
+redis-1  | 1:M 01 Sep 2025 02:15:59.686 * <search> Redis version found by RedisSearch : 8.2.1 - oss
+redis-1  | 1:M 01 Sep 2025 02:15:59.686 * <search> RediSearch version 8.2.1 (Git=dba8dd0)
+redis-1  | 1:M 01 Sep 2025 02:15:59.686 * <search> Low level api version 1 initialized successfully
+redis-1  | 1:M 01 Sep 2025 02:15:59.686 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, 
+redis-1  | 1:M 01 Sep 2025 02:15:59.686 * <search> Initialized thread pools!
+redis-1  | 1:M 01 Sep 2025 02:15:59.686 * <search> Disabled workers threadpool of size 0
+redis-1  | 1:M 01 Sep 2025 02:15:59.686 * <search> Subscribe to config changes
+redis-1  | 1:M 01 Sep 2025 02:15:59.686 * <search> Enabled role change notification
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <search> Register write commands
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * Module 'search' loaded from /usr/local/lib/redis/modules//redisearch.so
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> RedisTimeSeries version 80200, git_sha=1439d4a439ca9c063e6ef124a510abff09a5d493
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> Redis version found by RedisTimeSeries : 8.2.1 - oss
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> Registering configuration options: [
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> 	{ ts-compaction-policy   :              }
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> 	{ ts-num-threads         :            3 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> 	{ ts-retention-policy    :            0 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> 	{ ts-duplicate-policy    :        block }
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> 	{ ts-chunk-size-bytes    :         4096 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> 	{ ts-encoding            :   compressed }
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> 	{ ts-ignore-max-time-diff:            0 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> 	{ ts-ignore-max-val-diff :     0.000000 }
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> ]
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> Detected redis oss
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * <timeseries> Enabled diskless replication
+redis-1  | 1:M 01 Sep 2025 02:15:59.687 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <ReJSON> Created new data type 'ReJSON-RL'
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <ReJSON> version: 80200 git sha: unknown branch: unknown
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <ReJSON> Exported RedisJSON_V1 API
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <ReJSON> Exported RedisJSON_V2 API
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <ReJSON> Exported RedisJSON_V3 API
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <ReJSON> Exported RedisJSON_V4 API
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <ReJSON> Exported RedisJSON_V5 API
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <ReJSON> Enabled diskless replication
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <ReJSON> Initialized shared string cache, thread safe: false.
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <search> Acquired RedisJSON_V5 API
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * Server initialized
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <search> Loading event starts
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * <search> Enabled workers threadpool of size 4
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * Loading RDB produced by version 8.2.1
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * RDB age 79 seconds
+redis-1  | 1:M 01 Sep 2025 02:15:59.688 * RDB memory usage when created 0.97 Mb
+redis-1  | 1:M 01 Sep 2025 02:15:59.689 * Done loading RDB, keys loaded: 2, keys expired: 0.
+redis-1  | 1:M 01 Sep 2025 02:15:59.689 * <search> Disabled workers threadpool of size 4
+redis-1  | 1:M 01 Sep 2025 02:15:59.689 * <search> Loading event ends
+redis-1  | 1:M 01 Sep 2025 02:15:59.689 * DB loaded from disk: 0.000 seconds
+redis-1  | 1:M 01 Sep 2025 02:15:59.689 * Ready to accept connections tcp
+postgres-1  | 
+postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-1  | 
+flower-1    | 
+flower-1    | WARNING! You should run the image with GID (Group ID) set to 0
+flower-1    |          even if you use 'airflow' user (UID=50000)
+flower-1    | 
+flower-1    |  You started the image with UID=50000 and GID=50000
+flower-1    | 
+flower-1    |  This is to make sure you can run the image with an arbitrary UID in the future.
+flower-1    | 
+flower-1    |  See more about it in the Airflow's docker image documentation
+flower-1    |      http://airflow.apache.org/docs/docker-stack/entrypoint
+flower-1    | 
+airflow-scheduler-1  | 
+airflow-scheduler-1  | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-scheduler-1  |          even if you use 'airflow' user (UID=50000)
+airflow-scheduler-1  | 
+airflow-scheduler-1  |  You started the image with UID=50000 and GID=50000
+airflow-scheduler-1  | 
+airflow-scheduler-1  |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-scheduler-1  | 
+airflow-scheduler-1  |  See more about it in the Airflow's docker image documentation
+airflow-scheduler-1  |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-scheduler-1  | 
+airflow-init-1       | 
+airflow-init-1       | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-init-1       |          even if you use 'airflow' user (UID=50000)
+airflow-init-1       | 
+airflow-init-1       |  You started the image with UID=50000 and GID=50000
+airflow-init-1       | 
+airflow-init-1       |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-init-1       | 
+airflow-init-1       |  See more about it in the Airflow's docker image documentation
+airflow-init-1       |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-init-1       | 
+airflow-webserver-1  | 
+airflow-webserver-1  | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-webserver-1  |          even if you use 'airflow' user (UID=50000)
+airflow-webserver-1  | 
+airflow-webserver-1  |  You started the image with UID=50000 and GID=50000
+airflow-webserver-1  | 
+airflow-webserver-1  |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-webserver-1  | 
+airflow-webserver-1  |  See more about it in the Airflow's docker image documentation
+airflow-webserver-1  |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-webserver-1  | 
+airflow-worker-1     | 
+airflow-worker-1     | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-worker-1     |          even if you use 'airflow' user (UID=50000)
+airflow-worker-1     | 
+airflow-worker-1     |  You started the image with UID=50000 and GID=50000
+airflow-worker-1     | 
+airflow-worker-1     |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-worker-1     | 
+airflow-worker-1     |  See more about it in the Airflow's docker image documentation
+airflow-worker-1     |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-worker-1     | 
+airflow-scheduler-1  | 
+airflow-scheduler-1  | 
+airflow-init-1       | 
+airflow-init-1       | 
+airflow-webserver-1  | 
+airflow-webserver-1  | 
+flower-1             | 
+flower-1             | 
+airflow-worker-1     | 
+airflow-worker-1     | 
+airflow-init-1       | DB: sqlite:////opt/airflow/airflow.db
+airflow-init-1       | Performing upgrade to the metadata database sqlite:////opt/airflow/airflow.db
+airflow-init-1       | [2025-09-01T02:16:12.973+0000] {migration.py:207} INFO - Context impl SQLiteImpl.
+airflow-init-1       | DB: sqlite:////opt/airflow/airflow.db
+airflow-init-1       | Performing upgrade to the metadata database sqlite:////opt/airflow/airflow.db
+airflow-init-1       | [2025-09-01T02:16:12.973+0000] {migration.py:207} INFO - Context impl SQLiteImpl.
+airflow-init-1       | [2025-09-01T02:16:12.974+0000] {migration.py:210} INFO - Will assume non-transactional DDL.
+airflow-init-1       | [2025-09-01T02:16:12.974+0000] {migration.py:210} INFO - Will assume non-transactional DDL.
+airflow-init-1       | [2025-09-01T02:16:12.978+0000] {db.py:1135} INFO - Migrating the Airflow database
+airflow-init-1       | [2025-09-01T02:16:12.978+0000] {db.py:1135} INFO - Migrating the Airflow database
+airflow-init-1       | [2025-09-01T02:16:12.984+0000] {migration.py:207} INFO - Context impl SQLiteImpl.
+airflow-init-1       | [2025-09-01T02:16:12.984+0000] {migration.py:207} INFO - Context impl SQLiteImpl.
+airflow-init-1       | [2025-09-01T02:16:12.985+0000] {migration.py:210} INFO - Will assume non-transactional DDL.
+airflow-init-1       | [2025-09-01T02:16:12.985+0000] {migration.py:210} INFO - Will assume non-transactional DDL.
+airflow-init-1       | [2025-09-01T02:16:13.013+0000] {migration.py:207} INFO - Context impl SQLiteImpl.
+airflow-init-1       | [2025-09-01T02:16:13.013+0000] {migration.py:207} INFO - Context impl SQLiteImpl.
+airflow-init-1       | [2025-09-01T02:16:13.013+0000] {migration.py:210} INFO - Will assume non-transactional DDL.
+airflow-init-1       | [2025-09-01T02:16:13.013+0000] {migration.py:210} INFO - Will assume non-transactional DDL.
+airflow-init-1       | Database migrating done!
+airflow-init-1       | Database migrating done!
+airflow-init-1       | WARNING: Environment variable '_AIRFLOW_DB_UPGRADE' is deprecated please use '_AIRFLOW_DB_MIGRATE' instead
+airflow-webserver-1  | Usage: airflow [-h] GROUP_OR_COMMAND ...
+airflow-webserver-1  | 
+airflow-webserver-1  | Positional Arguments:
+airflow-webserver-1  |   GROUP_OR_COMMAND
+airflow-webserver-1  | 
+airflow-webserver-1  |     Groups
+airflow-webserver-1  |       assets            Manage assets
+airflow-webserver-1  |       backfill          Manage backfills
+airflow-webserver-1  |       celery            Celery components
+airflow-webserver-1  |       config            View configuration
+airflow-webserver-1  |       connections       Manage connections
+airflow-webserver-1  |       dags              Manage DAGs
+airflow-webserver-1  |       db                Database operations
+airflow-webserver-1  |       jobs              Manage jobs
+airflow-webserver-1  |       pools             Manage pools
+airflow-webserver-1  |       providers         Display providers
+airflow-webserver-1  |       tasks             Manage tasks
+airflow-webserver-1  |       variables         Manage variables
+airflow-webserver-1  | 
+airflow-webserver-1  |     Commands:
+airflow-webserver-1  |       api-server        Start an Airflow API server instance
+airflow-webserver-1  |       cheat-sheet       Display cheat sheet
+airflow-webserver-1  |       dag-processor     Start a dag processor instance
+airflow-webserver-1  |       info              Show information about current Airflow and environment
+airflow-webserver-1  |       kerberos          Start a kerberos ticket renewer
+airflow-webserver-1  |       plugins           Dump information about loaded plugins
+airflow-webserver-1  |       rotate-fernet-key
+airflow-webserver-1  |                         Rotate encrypted connection credentials and variables
+airflow-webserver-1  |       scheduler         Start a scheduler instance
+airflow-webserver-1  |       standalone        Run an all-in-one copy of Airflow
+airflow-webserver-1  |       triggerer         Start a triggerer instance
+airflow-webserver-1  |       version           Show the version
+airflow-webserver-1  | 
+airflow-webserver-1  | Options:
+airflow-webserver-1  |   -h, --help            show this help message and exit
+airflow-webserver-1  | 
+airflow-webserver-1  | airflow command error: argument GROUP_OR_COMMAND: Command `airflow webserver` has been removed. Please use `airflow api-server`, see help above.
+airflow-webserver-1  | Usage: airflow [-h] GROUP_OR_COMMAND ...
+airflow-webserver-1  | 
+airflow-webserver-1  | Positional Arguments:
+airflow-webserver-1  |   GROUP_OR_COMMAND
+airflow-webserver-1  | 
+airflow-webserver-1  |     Groups
+airflow-webserver-1  |       assets            Manage assets
+airflow-webserver-1  |       backfill          Manage backfills
+airflow-webserver-1  |       celery            Celery components
+airflow-webserver-1  |       config            View configuration
+airflow-webserver-1  |       connections       Manage connections
+airflow-webserver-1  |       dags              Manage DAGs
+airflow-webserver-1  |       db                Database operations
+airflow-webserver-1  |       jobs              Manage jobs
+airflow-webserver-1  |       pools             Manage pools
+airflow-webserver-1  |       providers         Display providers
+airflow-webserver-1  |       tasks             Manage tasks
+airflow-webserver-1  |       variables         Manage variables
+airflow-webserver-1  | 
+airflow-webserver-1  |     Commands:
+airflow-webserver-1  |       api-server        Start an Airflow API server instance
+airflow-webserver-1  |       cheat-sheet       Display cheat sheet
+airflow-webserver-1  |       dag-processor     Start a dag processor instance
+airflow-webserver-1  |       info              Show information about current Airflow and environment
+airflow-webserver-1  |       kerberos          Start a kerberos ticket renewer
+airflow-webserver-1  |       plugins           Dump information about loaded plugins
+airflow-webserver-1  |       rotate-fernet-key
+airflow-webserver-1  |                         Rotate encrypted connection credentials and variables
+airflow-webserver-1  |       scheduler         Start a scheduler instance
+airflow-webserver-1  |       standalone        Run an all-in-one copy of Airflow
+airflow-webserver-1  |       triggerer         Start a triggerer instance
+airflow-webserver-1  |       version           Show the version
+airflow-webserver-1  | 
+airflow-webserver-1  | Options:
+airflow-webserver-1  |   -h, --help            show this help message and exit
+[Kairflow-webserver-1 exited with code 2
+airflow-webserver-1  | 
+airflow-webserver-1  | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-webserver-1  |          even if you use 'airflow' user (UID=50000)
+airflow-webserver-1  | 
+airflow-webserver-1  |  You started the image with UID=50000 and GID=50000
+airflow-webserver-1  | 
+airflow-webserver-1  |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-webserver-1  | 
+airflow-webserver-1  |  See more about it in the Airflow's docker image documentation
+airflow-webserver-1  |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-webserver-1  | 
+airflow-scheduler-1  | BACKEND=redis
+airflow-scheduler-1  | DB_HOST=redis
+airflow-scheduler-1  | DB_PORT=6379
+airflow-scheduler-1  | BACKEND=redis
+airflow-scheduler-1  | DB_HOST=redis
+airflow-scheduler-1  | DB_PORT=6379
+airflow-scheduler-1  | 
+airflow-scheduler-1  | 
+airflow-init-1       | Skipping user creation as auth manager different from Fab is used
+airflow-init-1       | Skipping user creation as auth manager different from Fab is used
+airflow-worker-1     | BACKEND=redis
+airflow-worker-1     | DB_HOST=redis
+airflow-worker-1     | DB_PORT=6379
+airflow-worker-1     | BACKEND=redis
+airflow-worker-1     | DB_HOST=redis
+airflow-worker-1     | DB_PORT=6379
+airflow-worker-1     | 
+airflow-worker-1     | 
+flower-1             | BACKEND=redis
+flower-1             | BACKEND=redis
+flower-1             | DB_HOST=redis
+flower-1             | DB_PORT=6379
+flower-1             | DB_HOST=redis
+flower-1             | DB_PORT=6379
+flower-1             | 
+flower-1             | 
+airflow-webserver-1  | 
+airflow-scheduler-1  | ERROR: You need to initialize the database. Please run `airflow db migrate`. Make sure the command is run using Airflow version 3.0.0.
+[Kairflow-scheduler-1 exited with code 1
+airflow-scheduler-1  | 
+airflow-scheduler-1  | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-scheduler-1  |          even if you use 'airflow' user (UID=50000)
+airflow-scheduler-1  | 
+airflow-scheduler-1  |  You started the image with UID=50000 and GID=50000
+airflow-scheduler-1  | 
+airflow-scheduler-1  |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-scheduler-1  | 
+airflow-scheduler-1  |  See more about it in the Airflow's docker image documentation
+airflow-scheduler-1  |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-scheduler-1  | 
+airflow-init-1       | 3.0.0
+airflow-init-1       | 3.0.0
+airflow-webserver-1  | 
+airflow-webserver-1  | airflow command error: argument GROUP_OR_COMMAND: Command `airflow webserver` has been removed. Please use `airflow api-server`, see help above.
+airflow-webserver-1  | Usage: airflow [-h] GROUP_OR_COMMAND ...
+airflow-webserver-1  | 
+airflow-webserver-1  | Positional Arguments:
+airflow-webserver-1  |   GROUP_OR_COMMAND
+airflow-webserver-1  | 
+airflow-webserver-1  |     Groups
+airflow-webserver-1  |       assets            Manage assets
+airflow-webserver-1  |       backfill          Manage backfills
+airflow-webserver-1  |       celery            Celery components
+airflow-webserver-1  |       config            View configuration
+airflow-webserver-1  |       connections       Manage connections
+airflow-webserver-1  |       dags              Manage DAGs
+airflow-webserver-1  |       db                Database operations
+airflow-webserver-1  |       jobs              Manage jobs
+airflow-webserver-1  |       pools             Manage pools
+airflow-webserver-1  |       providers         Display providers
+airflow-webserver-1  |       tasks             Manage tasks
+airflow-webserver-1  |       variables         Manage variables
+airflow-webserver-1  | 
+airflow-webserver-1  |     Commands:
+airflow-webserver-1  |       api-server        Start an Airflow API server instance
+airflow-webserver-1  |       cheat-sheet       Display cheat sheet
+airflow-webserver-1  |       dag-processor     Start a dag processor instance
+airflow-webserver-1  |       info              Show information about current Airflow and environment
+airflow-webserver-1  |       kerberos          Start a kerberos ticket renewer
+airflow-webserver-1  |       plugins           Dump information about loaded plugins
+airflow-webserver-1  |       rotate-fernet-key
+airflow-webserver-1  |                         Rotate encrypted connection credentials and variables
+airflow-webserver-1  |       scheduler         Start a scheduler instance
+airflow-webserver-1  |       standalone        Run an all-in-one copy of Airflow
+airflow-webserver-1  |       triggerer         Start a triggerer instance
+airflow-webserver-1  |       version           Show the version
+airflow-webserver-1  | 
+airflow-webserver-1  | Options:
+airflow-webserver-1  |   -h, --help            show this help message and exit
+flower-1             | ERROR: You need to initialize the database. Please run `airflow db migrate`. Make sure the command is run using Airflow version 3.0.0.
+[Kairflow-init-1 exited with code 0
+airflow-worker-1     | ERROR: You need to initialize the database. Please run `airflow db migrate`. Make sure the command is run using Airflow version 3.0.0.
+[Kairflow-webserver-1 exited with code 2
+[Kflower-1 exited with code 1
+flower-1             | 
+flower-1             | WARNING! You should run the image with GID (Group ID) set to 0
+flower-1             |          even if you use 'airflow' user (UID=50000)
+flower-1             | 
+flower-1             |  You started the image with UID=50000 and GID=50000
+flower-1             | 
+flower-1             |  This is to make sure you can run the image with an arbitrary UID in the future.
+flower-1             | 
+flower-1             |  See more about it in the Airflow's docker image documentation
+flower-1             |      http://airflow.apache.org/docs/docker-stack/entrypoint
+flower-1             | 
+airflow-webserver-1  | 
+airflow-webserver-1  | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-webserver-1  |          even if you use 'airflow' user (UID=50000)
+airflow-webserver-1  | 
+airflow-webserver-1  |  You started the image with UID=50000 and GID=50000
+airflow-webserver-1  | 
+airflow-webserver-1  |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-webserver-1  | 
+airflow-webserver-1  |  See more about it in the Airflow's docker image documentation
+airflow-webserver-1  |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-webserver-1  | 
+[Kairflow-worker-1 exited with code 1
+airflow-worker-1     | 
+airflow-worker-1     | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-worker-1     |          even if you use 'airflow' user (UID=50000)
+airflow-worker-1     | 
+airflow-worker-1     |  You started the image with UID=50000 and GID=50000
+airflow-worker-1     | 
+airflow-worker-1     |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-worker-1     | 
+airflow-worker-1     |  See more about it in the Airflow's docker image documentation
+airflow-worker-1     |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-worker-1     | 
+airflow-scheduler-1  | 
+flower-1             | 
+airflow-webserver-1  | 
+airflow-worker-1     | 
+airflow-webserver-1  | 
+airflow-webserver-1  | airflow command error: argument GROUP_OR_COMMAND: Command `airflow webserver` has been removed. Please use `airflow api-server`, see help above.
+airflow-webserver-1  | Usage: airflow [-h] GROUP_OR_COMMAND ...
+airflow-webserver-1  | 
+airflow-webserver-1  | Positional Arguments:
+airflow-webserver-1  |   GROUP_OR_COMMAND
+airflow-webserver-1  | 
+airflow-webserver-1  |     Groups
+airflow-webserver-1  |       assets            Manage assets
+airflow-webserver-1  |       backfill          Manage backfills
+airflow-webserver-1  |       celery            Celery components
+airflow-webserver-1  |       config            View configuration
+airflow-webserver-1  |       connections       Manage connections
+airflow-webserver-1  |       dags              Manage DAGs
+airflow-webserver-1  |       db                Database operations
+airflow-webserver-1  |       jobs              Manage jobs
+airflow-webserver-1  |       pools             Manage pools
+airflow-webserver-1  |       providers         Display providers
+airflow-webserver-1  |       tasks             Manage tasks
+airflow-webserver-1  |       variables         Manage variables
+airflow-webserver-1  | 
+airflow-webserver-1  |     Commands:
+airflow-webserver-1  |       api-server        Start an Airflow API server instance
+airflow-webserver-1  |       cheat-sheet       Display cheat sheet
+airflow-webserver-1  |       dag-processor     Start a dag processor instance
+airflow-webserver-1  |       info              Show information about current Airflow and environment
+airflow-webserver-1  |       kerberos          Start a kerberos ticket renewer
+airflow-webserver-1  |       plugins           Dump information about loaded plugins
+airflow-webserver-1  |       rotate-fernet-key
+airflow-webserver-1  |                         Rotate encrypted connection credentials and variables
+airflow-webserver-1  |       scheduler         Start a scheduler instance
+airflow-webserver-1  |       standalone        Run an all-in-one copy of Airflow
+airflow-webserver-1  |       triggerer         Start a triggerer instance
+airflow-webserver-1  |       version           Show the version
+airflow-webserver-1  | 
+airflow-webserver-1  | Options:
+airflow-webserver-1  |   -h, --help            show this help message and exit
+[Kairflow-webserver-1 exited with code 2
+airflow-webserver-1  | 
+airflow-webserver-1  | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-webserver-1  |          even if you use 'airflow' user (UID=50000)
+airflow-webserver-1  | 
+airflow-webserver-1  |  You started the image with UID=50000 and GID=50000
+airflow-webserver-1  | 
+airflow-webserver-1  |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-webserver-1  | 
+airflow-webserver-1  |  See more about it in the Airflow's docker image documentation
+airflow-webserver-1  |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-webserver-1  | 
+flower-1             | BACKEND=redis
+flower-1             | DB_HOST=redis
+flower-1             | DB_PORT=6379
+flower-1             | 
+airflow-scheduler-1  | BACKEND=redis
+airflow-scheduler-1  | DB_HOST=redis
+airflow-scheduler-1  | DB_PORT=6379
+airflow-scheduler-1  | 
+airflow-worker-1     | BACKEND=redis
+airflow-worker-1     | DB_HOST=redis
+airflow-worker-1     | DB_PORT=6379
+airflow-worker-1     | 
+airflow-webserver-1  | 
+flower-1             | ERROR: You need to initialize the database. Please run `airflow db migrate`. Make sure the command is run using Airflow version 3.0.0.
+airflow-worker-1     | ERROR: You need to initialize the database. Please run `airflow db migrate`. Make sure the command is run using Airflow version 3.0.0.
+airflow-scheduler-1  | ERROR: You need to initialize the database. Please run `airflow db migrate`. Make sure the command is run using Airflow version 3.0.0.
+[Kflower-1 exited with code 1
+flower-1             | 
+flower-1             | WARNING! You should run the image with GID (Group ID) set to 0
+flower-1             |          even if you use 'airflow' user (UID=50000)
+flower-1             | 
+flower-1             |  You started the image with UID=50000 and GID=50000
+flower-1             | 
+flower-1             |  This is to make sure you can run the image with an arbitrary UID in the future.
+flower-1             | 
+flower-1             |  See more about it in the Airflow's docker image documentation
+flower-1             |      http://airflow.apache.org/docs/docker-stack/entrypoint
+flower-1             | 
+[Kairflow-worker-1 exited with code 1
+airflow-worker-1     | 
+airflow-worker-1     | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-worker-1     |          even if you use 'airflow' user (UID=50000)
+airflow-worker-1     | 
+airflow-worker-1     |  You started the image with UID=50000 and GID=50000
+airflow-worker-1     | 
+airflow-worker-1     |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-worker-1     | 
+airflow-worker-1     |  See more about it in the Airflow's docker image documentation
+airflow-worker-1     |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-worker-1     | 
+[Kairflow-scheduler-1 exited with code 1
+airflow-scheduler-1  | 
+airflow-scheduler-1  | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-scheduler-1  |          even if you use 'airflow' user (UID=50000)
+airflow-scheduler-1  | 
+airflow-scheduler-1  |  You started the image with UID=50000 and GID=50000
+airflow-scheduler-1  | 
+airflow-scheduler-1  |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-scheduler-1  | 
+airflow-scheduler-1  |  See more about it in the Airflow's docker image documentation
+airflow-scheduler-1  |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-scheduler-1  | 
+airflow-webserver-1  | 
+airflow-webserver-1  | airflow command error: argument GROUP_OR_COMMAND: Command `airflow webserver` has been removed. Please use `airflow api-server`, see help above.
+airflow-webserver-1  | Usage: airflow [-h] GROUP_OR_COMMAND ...
+airflow-webserver-1  | 
+airflow-webserver-1  | Positional Arguments:
+airflow-webserver-1  |   GROUP_OR_COMMAND
+airflow-webserver-1  | 
+airflow-webserver-1  |     Groups
+airflow-webserver-1  |       assets            Manage assets
+airflow-webserver-1  |       backfill          Manage backfills
+airflow-webserver-1  |       celery            Celery components
+airflow-webserver-1  |       config            View configuration
+airflow-webserver-1  |       connections       Manage connections
+airflow-webserver-1  |       dags              Manage DAGs
+airflow-webserver-1  |       db                Database operations
+airflow-webserver-1  |       jobs              Manage jobs
+airflow-webserver-1  |       pools             Manage pools
+airflow-webserver-1  |       providers         Display providers
+airflow-webserver-1  |       tasks             Manage tasks
+airflow-webserver-1  |       variables         Manage variables
+airflow-webserver-1  | 
+airflow-webserver-1  |     Commands:
+airflow-webserver-1  |       api-server        Start an Airflow API server instance
+airflow-webserver-1  |       cheat-sheet       Display cheat sheet
+airflow-webserver-1  |       dag-processor     Start a dag processor instance
+airflow-webserver-1  |       info              Show information about current Airflow and environment
+airflow-webserver-1  |       kerberos          Start a kerberos ticket renewer
+airflow-webserver-1  |       plugins           Dump information about loaded plugins
+airflow-webserver-1  |       rotate-fernet-key
+airflow-webserver-1  |                         Rotate encrypted connection credentials and variables
+airflow-webserver-1  |       scheduler         Start a scheduler instance
+airflow-webserver-1  |       standalone        Run an all-in-one copy of Airflow
+airflow-webserver-1  |       triggerer         Start a triggerer instance
+airflow-webserver-1  |       version           Show the version
+airflow-webserver-1  | 
+airflow-webserver-1  | Options:
+airflow-webserver-1  |   -h, --help            show this help message and exit
+[Kairflow-webserver-1 exited with code 2
+airflow-webserver-1  | 
+airflow-webserver-1  | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-webserver-1  |          even if you use 'airflow' user (UID=50000)
+airflow-webserver-1  | 
+airflow-webserver-1  |  You started the image with UID=50000 and GID=50000
+airflow-webserver-1  | 
+airflow-webserver-1  |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-webserver-1  | 
+airflow-webserver-1  |  See more about it in the Airflow's docker image documentation
+airflow-webserver-1  |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-webserver-1  | 
+flower-1             | 
+airflow-worker-1     | 
+airflow-scheduler-1  | 
+airflow-webserver-1  | 
+airflow-worker-1     | BACKEND=redis
+airflow-worker-1     | DB_HOST=redis
+airflow-worker-1     | DB_PORT=6379
+airflow-worker-1     | 
+airflow-webserver-1  | 
+airflow-webserver-1  | airflow command error: argument GROUP_OR_COMMAND: Command `airflow webserver` has been removed. Please use `airflow api-server`, see help above.
+airflow-webserver-1  | Usage: airflow [-h] GROUP_OR_COMMAND ...
+airflow-webserver-1  | 
+airflow-webserver-1  | Positional Arguments:
+airflow-webserver-1  |   GROUP_OR_COMMAND
+airflow-webserver-1  | 
+airflow-webserver-1  |     Groups
+airflow-webserver-1  |       assets            Manage assets
+airflow-webserver-1  |       backfill          Manage backfills
+airflow-webserver-1  |       celery            Celery components
+airflow-webserver-1  |       config            View configuration
+airflow-webserver-1  |       connections       Manage connections
+airflow-webserver-1  |       dags              Manage DAGs
+airflow-webserver-1  |       db                Database operations
+airflow-webserver-1  |       jobs              Manage jobs
+airflow-webserver-1  |       pools             Manage pools
+airflow-webserver-1  |       providers         Display providers
+airflow-webserver-1  |       tasks             Manage tasks
+airflow-webserver-1  |       variables         Manage variables
+airflow-webserver-1  | 
+airflow-webserver-1  |     Commands:
+airflow-webserver-1  |       api-server        Start an Airflow API server instance
+airflow-webserver-1  |       cheat-sheet       Display cheat sheet
+airflow-webserver-1  |       dag-processor     Start a dag processor instance
+airflow-webserver-1  |       info              Show information about current Airflow and environment
+airflow-webserver-1  |       kerberos          Start a kerberos ticket renewer
+airflow-webserver-1  |       plugins           Dump information about loaded plugins
+airflow-webserver-1  |       rotate-fernet-key
+airflow-webserver-1  |                         Rotate encrypted connection credentials and variables
+airflow-webserver-1  |       scheduler         Start a scheduler instance
+airflow-webserver-1  |       standalone        Run an all-in-one copy of Airflow
+airflow-webserver-1  |       triggerer         Start a triggerer instance
+airflow-webserver-1  |       version           Show the version
+airflow-webserver-1  | 
+airflow-webserver-1  | Options:
+airflow-webserver-1  |   -h, --help            show this help message and exit
+flower-1             | BACKEND=redis
+flower-1             | DB_HOST=redis
+flower-1             | DB_PORT=6379
+flower-1             | 
+[Kairflow-webserver-1 exited with code 2
+airflow-scheduler-1  | BACKEND=redis
+airflow-scheduler-1  | DB_HOST=redis
+airflow-scheduler-1  | DB_PORT=6379
+airflow-scheduler-1  | 
+airflow-webserver-1  | 
+airflow-webserver-1  | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-webserver-1  |          even if you use 'airflow' user (UID=50000)
+airflow-webserver-1  | 
+airflow-webserver-1  |  You started the image with UID=50000 and GID=50000
+airflow-webserver-1  | 
+airflow-webserver-1  |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-webserver-1  | 
+airflow-webserver-1  |  See more about it in the Airflow's docker image documentation
+airflow-webserver-1  |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-webserver-1  | 
+airflow-worker-1     | ERROR: You need to initialize the database. Please run `airflow db migrate`. Make sure the command is run using Airflow version 3.0.0.
+[Kairflow-worker-1 exited with code 1
+airflow-worker-1     | 
+airflow-worker-1     | WARNING! You should run the image with GID (Group ID) set to 0
+airflow-worker-1     |          even if you use 'airflow' user (UID=50000)
+airflow-worker-1     | 
+airflow-worker-1     |  You started the image with UID=50000 and GID=50000
+airflow-worker-1     | 
+airflow-worker-1     |  This is to make sure you can run the image with an arbitrary UID in the future.
+airflow-worker-1     | 
+airflow-worker-1     |  See more about it in the Airflow's docker image documentation
+airflow-worker-1     |      http://airflow.apache.org/docs/docker-stack/entrypoint
+airflow-worker-1     | 
+Gracefully Stopping... press Ctrl+C again to force
+[K Container thesis-initial-etl-prototype-flower-1  [32mStopping[0m
+[K Container thesis-initial-etl-prototype-airflow-webserver-1  [32mStopping[0m
+[K Container thesis-initial-etl-prototype-airflow-worker-1  [32mStopping[0m
+[K Container thesis-initial-etl-prototype-airflow-init-1  [32mStopping[0m
+[K Container thesis-initial-etl-prototype-airflow-scheduler-1  [32mStopping[0m
+[K Container thesis-initial-etl-prototype-airflow-init-1  [32mStopped[0m
+[K Container thesis-initial-etl-prototype-airflow-webserver-1  [32mStopped[0m
+[Kairflow-webserver-1 exited with code 143
+[K Container thesis-initial-etl-prototype-flower-1  [32mStopped[0m
+[Kflower-1 exited with code 143
+[K Container thesis-initial-etl-prototype-airflow-worker-1  [32mStopped[0m
+[Kairflow-worker-1 exited with code 143
+[K Container thesis-initial-etl-prototype-airflow-scheduler-1  [32mStopped[0m
+[K Container thesis-initial-etl-prototype-postgres-1  [32mStopping[0m
+[K Container thesis-initial-etl-prototype-redis-1  [32mStopping[0m
+[Kairflow-scheduler-1 exited with code 143
+[K Container thesis-initial-etl-prototype-postgres-1  [32mStopped[0m
+[Kpostgres-1 exited with code 0
+[K Container thesis-initial-etl-prototype-redis-1  [32mStopped[0m
