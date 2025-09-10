@@ -1,0 +1,155 @@
+Attaching to airflow-init-1
+airflow-init-1  | 
+airflow-init-1  | Creating missing opt dirs if missing:
+airflow-init-1  | 
+airflow-init-1  | 
+airflow-init-1  | Airflow version:
+airflow-init-1  | ....................
+airflow-init-1  | ERROR! Maximum number of retries (20) reached.
+airflow-init-1  | 
+airflow-init-1  | Last check result:
+airflow-init-1  | $ airflow db check
+airflow-init-1  | Traceback (most recent call last):
+airflow-init-1  |   File "/home/airflow/.local/bin/airflow", line 5, in <module>
+airflow-init-1  |     from airflow.__main__ import main
+airflow-init-1  |   File "/home/airflow/.local/lib/python3.6/site-packages/airflow/__init__.py", line 34, in <module>
+airflow-init-1  |     from airflow import settings
+airflow-init-1  |   File "/home/airflow/.local/lib/python3.6/site-packages/airflow/settings.py", line 37, in <module>
+airflow-init-1  |     from airflow.configuration import AIRFLOW_HOME, WEBSERVER_CONFIG, conf  # NOQA F401
+airflow-init-1  |   File "/home/airflow/.local/lib/python3.6/site-packages/airflow/configuration.py", line 1098, in <module>
+airflow-init-1  |     conf = initialize_config()
+airflow-init-1  |   File "/home/airflow/.local/lib/python3.6/site-packages/airflow/configuration.py", line 860, in initialize_config
+airflow-init-1  |     conf.validate()
+airflow-init-1  |   File "/home/airflow/.local/lib/python3.6/site-packages/airflow/configuration.py", line 199, in validate
+airflow-init-1  |     self._validate_config_dependencies()
+airflow-init-1  |   File "/home/airflow/.local/lib/python3.6/site-packages/airflow/configuration.py", line 229, in _validate_config_dependencies
+airflow-init-1  |     raise AirflowConfigException(f"error: cannot use sqlite with the {self.get('core', 'executor')}")
+airflow-init-1  | airflow.exceptions.AirflowConfigException: error: cannot use sqlite with the CeleryExecutor
+airflow-init-1  | 
+airflow-init-1  | 
+airflow-init-1  | Files in shared volumes:
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/config:
+airflow-init-1  | total 48
+airflow-init-1  | drwxr-xr-x 2    1000 root  4096 Sep 10 01:00 .
+airflow-init-1  | drwxrwxr-x 1 airflow root  4096 Sep 10 01:14 ..
+airflow-init-1  | -rw-rw-r-- 1    1000 root 39326 Sep 10 01:00 airflow.cfg
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/dags:
+airflow-init-1  | total 8
+airflow-init-1  | drwxr-xr-x 2    1000 root 4096 Sep  1 01:06 .
+airflow-init-1  | drwxrwxr-x 1 airflow root 4096 Sep 10 01:14 ..
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/logs:
+airflow-init-1  | total 16
+airflow-init-1  | drwxrwxr-x 4    1000 root 4096 Sep  1 01:14 .
+airflow-init-1  | drwxrwxr-x 1 airflow root 4096 Sep 10 01:14 ..
+airflow-init-1  | drwxr-xr-x 2    1000 root 4096 Sep  1 01:14 dag_processor_manager
+airflow-init-1  | drwxrwxr-x 6    1000 root 4096 Sep  8 23:14 scheduler
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/plugins:
+airflow-init-1  | total 8
+airflow-init-1  | drwxr-xr-x 2    1000 root 4096 Sep  1 01:06 .
+airflow-init-1  | drwxrwxr-x 1 airflow root 4096 Sep 10 01:14 ..
+airflow-init-1  | 
+airflow-init-1  | Running airflow config list to create default config file if missing.
+airflow-init-1  | 
+airflow-init-1  | 
+airflow-init-1  | Files in shared volumes:
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/config:
+airflow-init-1  | total 48
+airflow-init-1  | drwxr-xr-x 2    1000 root  4096 Sep 10 01:00 .
+airflow-init-1  | drwxrwxr-x 1 airflow root  4096 Sep 10 01:14 ..
+airflow-init-1  | -rw-rw-r-- 1    1000 root 39326 Sep 10 01:00 airflow.cfg
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/dags:
+airflow-init-1  | total 8
+airflow-init-1  | drwxr-xr-x 2    1000 root 4096 Sep  1 01:06 .
+airflow-init-1  | drwxrwxr-x 1 airflow root 4096 Sep 10 01:14 ..
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/logs:
+airflow-init-1  | total 16
+airflow-init-1  | drwxrwxr-x 4    1000 root 4096 Sep  1 01:14 .
+airflow-init-1  | drwxrwxr-x 1 airflow root 4096 Sep 10 01:14 ..
+airflow-init-1  | drwxr-xr-x 2    1000 root 4096 Sep  1 01:14 dag_processor_manager
+airflow-init-1  | drwxrwxr-x 6    1000 root 4096 Sep  8 23:14 scheduler
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/plugins:
+airflow-init-1  | total 8
+airflow-init-1  | drwxr-xr-x 2    1000 root 4096 Sep  1 01:06 .
+airflow-init-1  | drwxrwxr-x 1 airflow root 4096 Sep 10 01:14 ..
+airflow-init-1  | 
+airflow-init-1  | Change ownership of files in /opt/airflow to 1000:0
+airflow-init-1  | 
+airflow-init-1  | 
+airflow-init-1  | Change ownership of files in shared volumes to 1000:0
+airflow-init-1  | 
+airflow-init-1  | ownership of '/opt/airflow/logs/dag_processor_manager/dag_processor_manager.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/dag_processor_manager' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-03' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/latest' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-08' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-02' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_external_task_marker_dag.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_passing_params_via_test_command.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/tutorial.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_latest_only.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_kubernetes_executor_config.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_task_group.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/subdags/subdag.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/subdags' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_trigger_controller_dag.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_nested_branch_dag.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_short_circuit_operator.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/test_utils.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_kubernetes_executor.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_python_operator.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_xcomargs.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_branch_python_dop_operator_3.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_subdag_operator.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_dag_decorator.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_branch_operator.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/tutorial_etl_dag.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_complex.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/tutorial_taskflow_api_etl.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_latest_only_with_trigger.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_xcom.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_bash_operator.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_skip_dag.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags/example_trigger_target_dag.py.log' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags/example_dags' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01/native_dags' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler/2025-09-01' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs/scheduler' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/logs' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/dags' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/plugins' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/config/airflow.cfg' retained as 1000:root
+airflow-init-1  | ownership of '/opt/airflow/config' retained as 1000:root
+airflow-init-1  | 
+airflow-init-1  | Files in shared volumes:
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/config:
+airflow-init-1  | total 52
+airflow-init-1  | drwxr-xr-x 2 1000 root  4096 Sep 10 01:00 .
+airflow-init-1  | drwxrwxr-x 1 1000 root  4096 Sep 10 01:14 ..
+airflow-init-1  | -rw-rw-r-- 1 1000 root 39326 Sep 10 01:00 airflow.cfg
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/dags:
+airflow-init-1  | total 12
+airflow-init-1  | drwxr-xr-x 2 1000 root 4096 Sep  1 01:06 .
+airflow-init-1  | drwxrwxr-x 1 1000 root 4096 Sep 10 01:14 ..
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/logs:
+airflow-init-1  | total 20
+airflow-init-1  | drwxrwxr-x 4 1000 root 4096 Sep  1 01:14 .
+airflow-init-1  | drwxrwxr-x 1 1000 root 4096 Sep 10 01:14 ..
+airflow-init-1  | drwxr-xr-x 2 1000 root 4096 Sep  1 01:14 dag_processor_manager
+airflow-init-1  | drwxrwxr-x 6 1000 root 4096 Sep  8 23:14 scheduler
+airflow-init-1  | 
+airflow-init-1  | /opt/airflow/plugins:
+airflow-init-1  | total 12
+airflow-init-1  | drwxr-xr-x 2 1000 root 4096 Sep  1 01:06 .
+airflow-init-1  | drwxrwxr-x 1 1000 root 4096 Sep 10 01:14 ..
+[Kairflow-init-1 exited with code 0
