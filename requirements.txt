@@ -1,3 +1,5 @@
+airflow
+json
 psycopg2-binary
 pandas
 requests
