@@ -50,8 +50,6 @@ jobs:
           TF_VAR_aws_region: ${{ env.AWS_REGION }}
           TF_VAR_airflow_key_name: ${{ secrets.AIRFLOW_KEY_NAME }}
           TF_VAR_airflow_instance_type: ${{ secrets.AIRFLOW_INSTANCE_TYPE }}
-          TF_VAR_airflow_ssh_cidr: ${{ secrets.AIRFLOW_SSH_CIDR }}
-          TF_VAR_airflow_web_cidr: ${{ secrets.AIRFLOW_WEB_CIDR }}
 
       - name: Terraform Apply
         if: ${{ vars.TF_APPLY == 'true' }}
@@ -64,8 +62,6 @@ jobs:
           TF_VAR_aws_region: ${{ env.AWS_REGION }}
           TF_VAR_airflow_key_name: ${{ secrets.AIRFLOW_KEY_NAME }}
           TF_VAR_airflow_instance_type: ${{ secrets.AIRFLOW_INSTANCE_TYPE }}
-          TF_VAR_airflow_ssh_cidr: ${{ secrets.AIRFLOW_SSH_CIDR }}
-          TF_VAR_airflow_web_cidr: ${{ secrets.AIRFLOW_WEB_CIDR }}
 
       - name: Upload Glue script
         if: ${{ vars.TF_APPLY == 'true' && env.GLUE_SCRIPT_BUCKET != '' }}
