@@ -12,6 +12,7 @@ jobs:
       TF_IN_AUTOMATION: "true"
       GLUE_SCRIPT_BUCKET: ${{ secrets.GLUE_SCRIPT_BUCKET }}
       GLUE_SCRIPT_KEY: "glue/transform_raw_to_curated.py"
+      EC2_HOST: ${{ secrets.EC2_HOST }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -70,10 +71,10 @@ jobs:
           TF_VAR_airflow_web_cidr: ${{ secrets.AIRFLOW_WEB_CIDR }}
 
       - name: Deploy Airflow to EC2
-        if: ${{ vars.TF_APPLY == 'true' && secrets.EC2_HOST != '' }}
+        if: ${{ vars.TF_APPLY == 'true' && env.EC2_HOST != '' }}
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.EC2_HOST }}
+          host: ${{ env.EC2_HOST }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
           script: |
