@@ -11,7 +11,7 @@ output "glue_job_name" {
 }
 
 output "glue_role_arn" {
-  value = aws_iam_role.glue_role.arn
+  value = data.aws_iam_role.glue_role.arn
 }
 
 output "glue_scripts_bucket_name" {

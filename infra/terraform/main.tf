@@ -59,9 +59,8 @@ data "aws_iam_policy_document" "glue_assume" {
   }
 }
 
-resource "aws_iam_role" "glue_role" {
-  name               = "${var.project_name}-glue-role"
-  assume_role_policy = data.aws_iam_policy_document.glue_assume.json
+data "aws_iam_role" "glue_role" {
+  name = "${var.project_name}-glue-role"
 }
 
 data "aws_iam_policy_document" "glue_policy" {
@@ -93,13 +92,13 @@ data "aws_iam_policy_document" "glue_policy" {
 
 resource "aws_iam_role_policy" "glue_policy" {
   name   = "${var.project_name}-glue-policy"
-  role   = aws_iam_role.glue_role.id
+  role   = data.aws_iam_role.glue_role.id
   policy = data.aws_iam_policy_document.glue_policy.json
 }
 
 resource "aws_glue_job" "transform" {
   name     = var.glue_job_name
-  role_arn = aws_iam_role.glue_role.arn
+  role_arn = data.aws_iam_role.glue_role.arn
 
   command {
     name            = "pythonshell"
@@ -137,33 +136,9 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
-resource "aws_security_group" "airflow_sg" {
-  name        = "${var.project_name}-airflow-sg"
-  description = "Airflow EC2 security group"
-  vpc_id      = data.aws_vpc.default.id
-
-  ingress {
-    description = "SSH"
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = [var.airflow_ssh_cidr]
-  }
-
-  ingress {
-    description = "Airflow Web UI"
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
-    cidr_blocks = [var.airflow_web_cidr]
-  }
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+data "aws_security_group" "airflow_sg" {
+  name   = "${var.project_name}-airflow-sg"
+  vpc_id = data.aws_vpc.default.id
 }
 
 resource "aws_instance" "airflow" {
@@ -171,7 +146,7 @@ resource "aws_instance" "airflow" {
   instance_type               = var.airflow_instance_type
   key_name                    = var.airflow_key_name
   subnet_id                   = data.aws_subnets.default.ids[0]
-  vpc_security_group_ids      = [aws_security_group.airflow_sg.id]
+  vpc_security_group_ids      = [data.aws_security_group.airflow_sg.id]
   associate_public_ip_address = true
 
   user_data = <<-EOF
