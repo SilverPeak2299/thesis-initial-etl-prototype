@@ -2,9 +2,9 @@ data "aws_caller_identity" "current" {}
 
 locals {
   account_id                 = data.aws_caller_identity.current.account_id
-  default_raw_bucket_name    = "raw_bucket-${local.account_id}"
-  default_curated_bucket_name = "curated_bucket-${local.account_id}"
-  default_glue_bucket_name   = "glue_scripts_bucket-${local.account_id}"
+  default_raw_bucket_name    = "raw-bucket-${local.account_id}"
+  default_curated_bucket_name = "curated-bucket-${local.account_id}"
+  default_glue_bucket_name   = "glue-scripts-bucket-${local.account_id}"
 
   raw_bucket_name     = coalesce(var.raw_bucket_name, local.default_raw_bucket_name)
   curated_bucket_name = coalesce(var.curated_bucket_name, local.default_curated_bucket_name)
