@@ -1,5 +1,4 @@
-airflow
-json
+boto3
 psycopg2-binary
 pandas
 requests
