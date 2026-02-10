@@ -33,10 +33,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Upload Glue script
-        if: env.GLUE_SCRIPT_BUCKET != ''
-        run: aws s3 cp glue_jobs/transform_raw_to_curated.py s3://${GLUE_SCRIPT_BUCKET}/${GLUE_SCRIPT_KEY}
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
@@ -70,6 +66,10 @@ jobs:
           TF_VAR_airflow_instance_type: ${{ secrets.AIRFLOW_INSTANCE_TYPE }}
           TF_VAR_airflow_ssh_cidr: ${{ secrets.AIRFLOW_SSH_CIDR }}
           TF_VAR_airflow_web_cidr: ${{ secrets.AIRFLOW_WEB_CIDR }}
+
+      - name: Upload Glue script
+        if: ${{ vars.TF_APPLY == 'true' && env.GLUE_SCRIPT_BUCKET != '' }}
+        run: aws s3 cp glue_jobs/transform_raw_to_curated.py s3://${GLUE_SCRIPT_BUCKET}/${GLUE_SCRIPT_KEY}
 
       - name: Deploy Airflow to EC2
         if: ${{ vars.TF_APPLY == 'true' && env.EC2_HOST != '' }}
