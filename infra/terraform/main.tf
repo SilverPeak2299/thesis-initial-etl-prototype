@@ -1,14 +1,7 @@
-data "aws_caller_identity" "current" {}
-
 locals {
-  account_id                 = data.aws_caller_identity.current.account_id
-  default_raw_bucket_name    = "raw-bucket-${local.account_id}"
-  default_curated_bucket_name = "curated-bucket-${local.account_id}"
-  default_glue_bucket_name   = "glue-scripts-bucket-${local.account_id}"
-
-  raw_bucket_name     = coalesce(var.raw_bucket_name, local.default_raw_bucket_name)
-  curated_bucket_name = coalesce(var.curated_bucket_name, local.default_curated_bucket_name)
-  glue_bucket_name    = coalesce(var.glue_scripts_bucket_name, local.default_glue_bucket_name)
+  raw_bucket_name     = var.raw_bucket_name
+  curated_bucket_name = var.curated_bucket_name
+  glue_bucket_name    = var.glue_scripts_bucket_name
 
   glue_script_s3_path = coalesce(
     var.glue_script_s3_path,
@@ -16,37 +9,16 @@ locals {
   )
 }
 
-resource "aws_s3_bucket" "raw" {
+data "aws_s3_bucket" "raw" {
   bucket = local.raw_bucket_name
 }
 
-resource "aws_s3_bucket" "curated" {
+data "aws_s3_bucket" "curated" {
   bucket = local.curated_bucket_name
 }
 
-resource "aws_s3_bucket" "glue_scripts" {
+data "aws_s3_bucket" "glue_scripts" {
   bucket = local.glue_bucket_name
-}
-
-resource "aws_s3_bucket_versioning" "raw" {
-  bucket = aws_s3_bucket.raw.id
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
-
-resource "aws_s3_bucket_versioning" "curated" {
-  bucket = aws_s3_bucket.curated.id
-  versioning_configuration {
-    status = "Enabled"
-  }
-}
-
-resource "aws_s3_bucket_versioning" "glue_scripts" {
-  bucket = aws_s3_bucket.glue_scripts.id
-  versioning_configuration {
-    status = "Enabled"
-  }
 }
 
 data "aws_iam_policy_document" "glue_assume" {
@@ -71,12 +43,12 @@ data "aws_iam_policy_document" "glue_policy" {
       "s3:ListBucket"
     ]
     resources = [
-      aws_s3_bucket.raw.arn,
-      "${aws_s3_bucket.raw.arn}/*",
-      aws_s3_bucket.curated.arn,
-      "${aws_s3_bucket.curated.arn}/*",
-      aws_s3_bucket.glue_scripts.arn,
-      "${aws_s3_bucket.glue_scripts.arn}/*",
+      data.aws_s3_bucket.raw.arn,
+      "${data.aws_s3_bucket.raw.arn}/*",
+      data.aws_s3_bucket.curated.arn,
+      "${data.aws_s3_bucket.curated.arn}/*",
+      data.aws_s3_bucket.glue_scripts.arn,
+      "${data.aws_s3_bucket.glue_scripts.arn}/*",
     ]
   }
 
@@ -94,26 +66,6 @@ resource "aws_iam_role_policy" "glue_policy" {
   name   = "${var.project_name}-glue-policy"
   role   = data.aws_iam_role.glue_role.id
   policy = data.aws_iam_policy_document.glue_policy.json
-}
-
-resource "aws_glue_job" "transform" {
-  name     = var.glue_job_name
-  role_arn = data.aws_iam_role.glue_role.arn
-
-  command {
-    name            = "pythonshell"
-    python_version  = "3"
-    script_location = local.glue_script_s3_path
-  }
-
-  max_capacity = var.glue_max_capacity
-  timeout      = 60
-
-  default_arguments = {
-    "--job-language"               = "python"
-    "--enable-continuous-cloudwatch-log" = "true"
-    "--additional-python-modules"  = "awswrangler==3.6.0,pyarrow==14.0.2,pandas==2.2.2"
-  }
 }
 
 data "aws_vpc" "default" {

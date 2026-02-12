@@ -1,13 +1,13 @@
 output "raw_bucket_name" {
-  value = aws_s3_bucket.raw.bucket
+  value = data.aws_s3_bucket.raw.bucket
 }
 
 output "curated_bucket_name" {
-  value = aws_s3_bucket.curated.bucket
+  value = data.aws_s3_bucket.curated.bucket
 }
 
 output "glue_job_name" {
-  value = aws_glue_job.transform.name
+  value = var.glue_job_name
 }
 
 output "glue_role_arn" {
@@ -15,7 +15,7 @@ output "glue_role_arn" {
 }
 
 output "glue_scripts_bucket_name" {
-  value = aws_s3_bucket.glue_scripts.bucket
+  value = data.aws_s3_bucket.glue_scripts.bucket
 }
 
 output "glue_script_s3_path" {

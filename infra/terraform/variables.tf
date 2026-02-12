@@ -13,19 +13,16 @@ variable "project_name" {
 variable "raw_bucket_name" {
   type        = string
   description = "S3 bucket name for raw data."
-  default     = null
 }
 
 variable "curated_bucket_name" {
   type        = string
   description = "S3 bucket name for curated data."
-  default     = null
 }
 
 variable "glue_scripts_bucket_name" {
   type        = string
   description = "S3 bucket name for Glue job scripts."
-  default     = null
 }
 
 variable "glue_job_name" {
@@ -49,7 +46,7 @@ variable "glue_max_capacity" {
 variable "airflow_instance_type" {
   type        = string
   description = "EC2 instance type for Airflow host."
-  default     = "t3.medium"
+  default     = "t3.micro"
 }
 
 variable "airflow_key_name" {
